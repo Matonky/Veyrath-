@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veyrath · Guía del Jugador</title>
+<style>
+  :root {
+    --parchment: #ede4d0;
+    --parchment-dark: #e2d5ba;
+    --ink: #2b2119;
+    --ink-soft: #4a3d2e;
+    --wizard-red: #7a2018;
+    --wizard-red-soft: #9a3527;
+    --gold: #8a6d3b;
+    --box-bg: #e6dcc2;
+    --box-border: #c2a878;
+    --rule: #7a2018;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background:
+      radial-gradient(ellipse at 20% 15%, rgba(190,165,120,0.25), transparent 55%),
+      radial-gradient(ellipse at 80% 70%, rgba(150,120,80,0.20), transparent 50%),
+      radial-gradient(ellipse at 50% 100%, rgba(120,90,55,0.18), transparent 60%),
+      var(--parchment);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    line-height: 1.6;
+    font-size: 18px;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 48px 40px 80px;
+    background:
+      linear-gradient(rgba(237,228,208,0.5), rgba(237,228,208,0.5)),
+      repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(140,110,70,0.02) 3px, rgba(140,110,70,0.02) 4px);
+    min-height: 100vh;
+    box-shadow: 0 0 60px rgba(90,60,30,0.15) inset;
+  }
+  h1 {
+    font-size: 42px;
+    color: var(--wizard-red);
+    text-align: center;
+    margin: 0 0 4px;
+    letter-spacing: 2px;
+    font-weight: 800;
+    text-shadow: 1px 1px 0 rgba(120,90,55,0.15);
+  }
+  .subtitle {
+    text-align: center;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 20px;
+    margin: 0 0 8px;
+  }
+  .title-rule {
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--wizard-red) 20%, var(--wizard-red) 80%, transparent);
+    margin: 18px 0 36px;
+    border: none;
+  }
+  h2 {
+    font-size: 30px;
+    color: var(--wizard-red);
+    margin: 44px 0 2px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  h2 + .h2-rule {
+    height: 2px;
+    background: linear-gradient(90deg, var(--wizard-red) 0%, var(--wizard-red) 60%, transparent 100%);
+    border: none;
+    margin: 0 0 20px;
+  }
+  h3 {
+    font-size: 23px;
+    color: var(--wizard-red-soft);
+    margin: 30px 0 6px;
+    font-weight: 700;
+  }
+  h4 {
+    font-size: 19px;
+    color: var(--ink);
+    margin: 22px 0 4px;
+    font-weight: 700;
+    font-variant: small-caps;
+    letter-spacing: 1px;
+  }
+  p { margin: 10px 0; }
+  em { color: var(--ink-soft); }
+  strong { color: var(--wizard-red-soft); }
+  .lead {
+    font-size: 20px;
+    font-style: italic;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--wizard-red);
+    padding-left: 18px;
+    margin: 20px 0 24px;
+  }
+  .drop::first-letter {
+    font-size: 58px;
+    float: left;
+    line-height: 0.8;
+    padding: 6px 10px 4px 0;
+    color: var(--wizard-red);
+    font-weight: 800;
+  }
+  ul, ol { margin: 12px 0; padding-left: 26px; }
+  li { margin: 6px 0; }
+  .box {
+    background: var(--box-bg);
+    border: 1px solid var(--box-border);
+    border-left: 4px solid var(--wizard-red);
+    border-radius: 3px;
+    padding: 16px 22px;
+    margin: 24px 0;
+    box-shadow: 0 1px 4px rgba(90,60,30,0.12);
+  }
+  .box h4 { margin-top: 0; color: var(--wizard-red); }
+  .box.dark {
+    background: var(--parchment-dark);
+    border-left-color: var(--ink-soft);
+  }
+  .region-block { margin: 18px 0; }
+  .region-block h4 { color: var(--wizard-red); font-size: 20px; margin-bottom: 2px; }
+  .region-block .tag { font-style: italic; color: var(--ink-soft); font-size: 16px; }
+  .origins li { margin: 12px 0; }
+  .origins strong { color: var(--wizard-red); }
+  .seed {
+    font-style: italic;
+    color: var(--ink-soft);
+    margin: 6px 0 6px 4px;
+  }
+  .divider {
+    text-align: center;
+    color: var(--wizard-red);
+    font-size: 22px;
+    margin: 40px 0;
+    letter-spacing: 8px;
+  }
+  .closing {
+    text-align: center;
+    font-style: italic;
+    color: var(--ink-soft);
+    margin-top: 40px;
+    font-size: 19px;
+  }
+  @media (max-width: 600px) {
+    body { font-size: 17px; }
+    .page { padding: 28px 20px 60px; }
+    h1 { font-size: 32px; }
+    .subtitle { font-size: 17px; }
+    h2 { font-size: 25px; }
+    h3 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <h1>VEYRATH</h1>
+  <p class="subtitle">Guía del Jugador</p>
+  <hr class="title-rule">
+
+  <p class="lead">Antes de saber quién eres, tienes que saber dónde te encuentras. Esto es lo que cualquier persona nacida en este mundo entiende en los huesos. Lo demás —lo que no se dice, lo que se sospecha, lo que se descubre— es asunto de la campaña.</p>
+
+  <h2>El mundo</h2>
+  <hr class="h2-rule">
+
+  <p class="drop">Veyrath es un continente viejo y cansado, rodeado de tres mares: el Mar Hueso al oeste, frío y brutal; el Mar Dorado al este, cálido y lleno de barcos; y el Mar Velado al sur, cubierto de niebla, del que nadie ha vuelto para contar qué hay más allá. Al norte, la tierra termina contra una cadena de montañas que nadie cruza: el Muro de los Ancestros, donde —según se dice— van los muertos.</p>
+
+  <p>Casi todo el continente pertenece, en el papel, al <strong>Imperio de Arveth</strong>. Un imperio que gobernó tres siglos y que hoy se está partiendo por dentro.</p>
+
+  <p>Y se parte por una sola cosa.</p>
+
+  <div class="box">
+    <h4>El yugo</h4>
+    <p>En Arveth, la esclavitud es legal. Es hereditaria: quien nace esclavo, muere esclavo, y sus hijos también. Y es <em>sagrada</em>: la Iglesia del Sol Coronado enseña que cada persona tiene su lugar bajo el sol, y que el orden —amos arriba, esclavos abajo— es la voluntad del dios. A los esclavos se les impone en el cuello la <strong>Marca del Yugo</strong>, un tatuaje consagrado que los declara propiedad ante la ley y ante Dios.</p>
+    <p>Durante trescientos años, el imperio se dijo a sí mismo que esto era el orden natural del mundo. Ahora, por primera vez, hay demasiada gente que dice que no.</p>
+  </div>
+
+  <p>El emperador <strong>Hadrian V</strong> quiere reformas y no puede darlas sin perder el trono. Los grandes señores esclavistas se niegan a ceder un solo cuello. Una red de abolicionistas mueve esclavos a la libertad en las sombras. Y en los márgenes, los esclavos que se soltaron las cadenas se organizan, se arman y esperan. El imperio no está en guerra contra un enemigo de afuera: está en guerra consigo mismo, y todo el mundo lo sabe.</p>
+
+  <p>Esa es la pregunta que late bajo todo Veyrath: <em>¿cuánto horror tolera una civilización con tal de no cambiar?</em></p>
+
+  <div class="box dark">
+    <h4>Una nota antes de empezar</h4>
+    <p>Este es un mundo sobre la esclavitud y sobre gente que vive bajo ella o se beneficia de ella. Es un tema pesado y está en el centro de todo. Vas a crear a alguien que vive dentro de esa realidad —de un lado, del otro, o tratando de sobrevivir en el medio—. Si hay líneas que no quieres cruzar en la mesa, háblalo con el grupo antes de jugar. Este mundo da lugar para historias muy distintas, y ninguna te obliga a nada que no quieras contar.</p>
+  </div>
+
+  <div class="divider">✶ ✶ ✶</div>
+
+  <h2>Las tierras</h2>
+  <hr class="h2-rule">
+
+  <p>Seis regiones forman el continente, y hay un séptimo poder del otro lado del mar. No hace falta que te las aprendas todas: alcanza con saber cuál podría ser el hogar de tu personaje.</p>
+
+  <div class="region-block">
+    <h4>Vaelor</h4>
+    <p class="tag">El corazón del imperio.</p>
+    <p>Tierras de labranza, ciudades amuralladas y siete grandes casas nobles que se disputan el poder alrededor del trono. Aquí la esclavitud es la ley del día y la política lo es todo. Su capital, Arvenia, es una ciudad construida en niveles sobre una montaña: cuanto más alto vives, más vales. En lo más alto, la corte y la catedral. En el fondo, en el barro, los esclavos.</p>
+  </div>
+
+  <div class="region-block">
+    <h4>Nareth</h4>
+    <p class="tag">La costa del comercio, donde el oro compra hasta la libertad.</p>
+    <p>Tres ciudades mediterráneas de sol fuerte y puertos abiertos, gobernadas de hecho por casas mercantes más que por el imperio. Es el lugar más mezclado y más libre de Arveth: aquí un esclavo puede, si junta una fortuna imposible, comprar legalmente su libertad. La casa más rica de la región es de tieflings —lo que enfurece a media nobleza del continente—.</p>
+  </div>
+
+  <div class="region-block">
+    <h4>Khorth</h4>
+    <p class="tag">El norte frío, de clanes y hielo.</p>
+    <p>Tierras duras bajo el Muro de los Ancestros, habitadas por clanes guerreros que no reconocen dioses, solo a sus muertos. No hay esclavitud entre ellos. Tatúan sus historias en la piel y juran juramentos que matan si se rompen. El imperio los reclama en el mapa; ellos ya dejaron de pagarle tributo.</p>
+  </div>
+
+  <div class="region-block">
+    <h4>Blackmarsh</h4>
+    <p class="tag">Los pantanos de las brujas.</p>
+    <p>Una extensión enorme de ciénagas y niebla que el imperio nunca logró dominar. No hay gobierno: hay brujas que ofrecen curas, maldiciones y transformaciones a cambio de favores, y aldeas que sobreviven creyendo en cosas viejas. Todo el mundo le teme al pantano, y hace bien.</p>
+  </div>
+
+  <div class="region-block">
+    <h4>Thaléren</h4>
+    <p class="tag">El bosque dorado de los elfos.</p>
+    <p>Un reino antiguo de árboles inmensos y luz dorada, gobernado por una reina que lleva ochocientos años en el trono. Bello por fuera. Por dentro, los elfos tienen su propia manera de encadenar a los suyos, más suave a la vista y no menos real. Guardan el conocimiento más antiguo del mundo, y no lo comparten.</p>
+  </div>
+
+  <div class="region-block">
+    <h4>Veyruun</h4>
+    <p class="tag">Las cumbres libres del oeste.</p>
+    <p>Tierras altas, frías y difíciles de alcanzar, donde viven en confederación de tribus los pueblos que el imperio esclavizó o despreció: orcos, goblins, tieflings, humanos desertores, mestizos de todo tipo. No hay amos aquí. Se vive con lo justo, pero nadie lleva Marca. Para muchos esclavos, Veyruun es el sueño imposible del otro lado de las montañas.</p>
+  </div>
+
+  <div class="region-block">
+    <h4>Iskariun</h4>
+    <p class="tag">El poder del otro lado del Mar Dorado.</p>
+    <p>Un archipiélago de fortalezas talladas en la roca, dominado por enanos navegantes que hace ochenta años abolieron la esclavitud. No es parte del continente: es su vecino, su rival comercial y su espejo incómodo. Sus barcos no tienen igual, y su interés en los asuntos del imperio nunca es tan neutral como dicen.</p>
+  </div>
+
+  <div class="divider">✶ ✶ ✶</div>
+
+  <h2>La fe del imperio</h2>
+  <hr class="h2-rule">
+
+  <p>La religión oficial de Arveth es la <strong>Iglesia del Sol Coronado</strong>, y su dios es Lathander, el sol. La Iglesia enseña que el sol corona a cada cosa en su lugar: el noble en su salón, el siervo en su labor, el esclavo bajo su yugo. Servir bien, desde donde te tocó, es la forma de honrar al dios.</p>
+
+  <p>Para la mayoría de la gente, esto no es opresión: es simplemente cómo es el mundo, bendecido y explicado. Se va a misa, se celebran las fiestas del sol, se bautiza a los hijos. La Iglesia consuela, cura en sus hospitales, entierra a los muertos. Y también marca a los esclavos, y bendice los mercados donde se los vende.</p>
+
+  <p>No todos comulgan con ella. En Khorth veneran a sus ancestros y a nadie más. Los elfos escuchan a su bosque. En Iskariun rezan a un dios del mar. Y aun dentro del imperio, en voz baja, hay quien murmura que la Iglesia no siempre enseñó lo que enseña hoy —pero eso es murmurar, y murmurar de más tiene su precio—.</p>
+
+  <div class="divider">✶ ✶ ✶</div>
+
+  <h2>Guía de armado de personaje</h2>
+  <hr class="h2-rule">
+
+  <p class="lead">No te preguntes todavía qué sabes hacer. Pregúntate quién eres en este mundo, de dónde vienes y qué te debe o te quitó. De ahí sale todo lo demás.</p>
+
+  <h3>De dónde vienes</h3>
+  <p>En Veyrath, tu origen no es un detalle: define cómo el mundo te mira y qué puertas se te abren o se te cierran. Estos son los caminos posibles. Cualquiera sirve; algunos chocan entre sí, y eso es parte de la gracia de un grupo.</p>
+
+  <ul class="origins">
+    <li><strong>Esclavo o esclava.</strong> Llevas la Marca del Yugo en el cuello. Perteneces a alguien —una casa, un templo, un amo— por ley y por fe. Quizás naciste así; quizás caíste. ¿Sigues bajo el yugo, o te soltaste y ahora eres un fugitivo con un tatuaje que te delata?</li>
+    <li><strong>Liberto o liberta.</strong> Fuiste esclavo y ya no lo eres: compraste tu libertad, te la dieron, o te la ganaste. Pero la Marca no se borra —se le añade un sello encima—. Eres libre ante la ley, y todo el mundo que te ve el cuello sabe lo que fuiste.</li>
+    <li><strong>Plebeyo o plebeya libre.</strong> Naciste libre y sin título: campesino, artesano, marinero, mercader pequeño, soldado raso. La enorme mayoría del imperio es como tú. Nunca llevaste Marca, y rezas para no llevarla nunca.</li>
+    <li><strong>Hijo o hija de casa.</strong> Vienes de una familia con nombre, tierra o poder —noble, mercante rica, militar de rango—. El sistema te favorece. La pregunta es si estás cómodo con eso, o si algo viste que ya no te deja estarlo.</li>
+    <li><strong>Gente de los márgenes.</strong> Naciste fuera del yugo: en un clan de Khorth, en las tribus libres de Veyruun, en los pantanos de Blackmarsh, en el bosque de Thaléren. Para ti el imperio es algo ajeno y las cadenas son algo que les pasa a otros —por ahora—.</li>
+    <li><strong>Extranjero o extranjera.</strong> Vienes de Iskariun, del otro lado del Mar Dorado, o de más lejos todavía. Miras todo esto desde afuera, y lo que para los locales es normal a ti te resulta increíble, o monstruoso.</li>
+  </ul>
+
+  <div class="box">
+    <h4>Sobre la Marca del Yugo</h4>
+    <p>Si tu personaje es o fue esclavo, lleva la Marca: un tatuaje en la base del cuello que lo declara propiedad. No se puede quitar —arrancarla, quemarla o taparla no borra lo que significa—. Un liberto lleva la Marca con un segundo sello encima que certifica su libertad. Un fugitivo lleva la Marca sin sello, y eso lo vuelve, ante la ley, propiedad reclamable de quien lo atrape. La Marca es visible con el cuello abierto y ocultable con el cuello cerrado, y buena parte de vivir con ella es decidir, cada día, quién puede vértela.</p>
+  </div>
+
+  <h3>Qué puedes ser</h3>
+  <p>Veyrath tiene sus pueblos: humanos (los más numerosos), elfos, enanos, tieflings, medio-orcos, halflings, gnomos, goblins y hobgoblins, y semielfos. Cada uno tiene su lugar y su historia en el mundo, y arriba, en las regiones, puedes ver de dónde viene cada uno.</p>
+
+  <div class="box">
+    <h4>Razas de más allá del mapa</h4>
+    <p>¿Quieres jugar algo que no está en esa lista? Puedes. En Veyrath, las razas que no pertenecen a ninguna de estas tierras existen como <strong>individuos excepcionales</strong>, llegados de más allá del Mar Velado, del sur que nadie cartografió. Tu personaje sería, literalmente, alguien que este mundo casi nunca vio: un extranjero cuyo origen es un misterio incluso para los eruditos. Eso no es una limitación —es un gancho—. Cómo llegaste hasta aquí, y por qué, es tuyo para inventar.</p>
+  </div>
+
+  <h3>Preguntas para encontrar a tu personaje</h3>
+  <p>No tienes que responderlas todas. Elige las que te enciendan algo. Cada respuesta es un hilo que te ata al mundo —y que yo, como quien narra, puedo tirar más adelante—.</p>
+
+  <ul>
+    <li class="seed">¿Alguna vez viste a alguien con la Marca? ¿Qué sentiste? ¿Y si la Marca la llevas tú?</li>
+    <li class="seed">¿Tu familia sirve a una casa, le debe algo a una, o es una?</li>
+    <li class="seed">¿Crees en el Sol Coronado? ¿Vas a misa por fe, por costumbre, o no vas?</li>
+    <li class="seed">¿Conociste alguna vez a alguien que se liberó, o que se fugó? ¿Cómo terminó?</li>
+    <li class="seed">¿Hay algo que el imperio te quitó, o algo que el imperio te dio y no quieres perder?</li>
+    <li class="seed">Si pudieras cambiar una sola cosa de cómo funciona el mundo, ¿cuál sería? ¿Y qué estarías dispuesto a arriesgar por cambiarla —o a defender para que no cambie—?</li>
+  </ul>
+
+  <div class="box dark">
+    <h4>Lo último, y lo más importante</h4>
+    <p>No hace falta que tu personaje quiera cambiar el mundo. Puede solo querer sobrevivir, o enriquecerse, o proteger a los suyos, o volver a casa. En un mundo que se está partiendo, hasta la gente que solo quiere vivir tranquila termina teniendo que elegir un lado. Trae a alguien con algo que perder. El resto lo descubrimos jugando.</p>
+  </div>
+
+  <p class="closing">Bienvenido a Veyrath.<br>El sol sale para todos —dicen—.</p>
+
+</div>
+</body>
+</html>
