@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veyrath · Heridas y Recuperación</title>
+<style>
+  :root {
+    --parchment: #ede4d0;
+    --parchment-dark: #e2d5ba;
+    --ink: #2b2119;
+    --ink-soft: #4a3d2e;
+    --wizard-red: #7a2018;
+    --wizard-red-soft: #9a3527;
+    --box-bg: #e6dcc2;
+    --box-border: #c2a878;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background:
+      radial-gradient(ellipse at 20% 15%, rgba(190,165,120,0.25), transparent 55%),
+      radial-gradient(ellipse at 80% 70%, rgba(150,120,80,0.20), transparent 50%),
+      var(--parchment);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    line-height: 1.6;
+    font-size: 18px;
+  }
+  .page {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 48px 44px 80px;
+    min-height: 100vh;
+    box-shadow: 0 0 60px rgba(90,60,30,0.15) inset;
+  }
+  h1 {
+    font-size: 40px;
+    color: var(--wizard-red);
+    text-align: center;
+    margin: 0 0 4px;
+    letter-spacing: 1px;
+    font-weight: 800;
+  }
+  .subtitle {
+    text-align: center;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 19px;
+    margin: 0 0 8px;
+  }
+  .title-rule {
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--wizard-red) 20%, var(--wizard-red) 80%, transparent);
+    margin: 18px 0 36px;
+    border: none;
+  }
+  h2 {
+    font-size: 27px;
+    color: var(--wizard-red);
+    margin: 40px 0 2px;
+    font-weight: 700;
+  }
+  h2 + .h2-rule {
+    height: 2px;
+    background: linear-gradient(90deg, var(--wizard-red) 0%, var(--wizard-red) 55%, transparent 100%);
+    border: none;
+    margin: 0 0 18px;
+  }
+  h3 {
+    font-size: 21px;
+    color: var(--wizard-red-soft);
+    margin: 26px 0 6px;
+    font-weight: 700;
+  }
+  h4 {
+    font-size: 17px;
+    color: var(--ink);
+    margin: 20px 0 4px;
+    font-weight: 700;
+    font-variant: small-caps;
+    letter-spacing: 0.8px;
+  }
+  p { margin: 10px 0; }
+  em { color: var(--ink-soft); }
+  strong { color: var(--wizard-red-soft); }
+  .lead {
+    font-size: 19px;
+    font-style: italic;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--wizard-red);
+    padding-left: 18px;
+    margin: 20px 0 24px;
+  }
+  ul, ol { margin: 10px 0; padding-left: 26px; }
+  li { margin: 7px 0; }
+  .box {
+    background: var(--box-bg);
+    border: 1px solid var(--box-border);
+    border-left: 4px solid var(--wizard-red);
+    border-radius: 3px;
+    padding: 14px 20px;
+    margin: 22px 0;
+    box-shadow: 0 1px 4px rgba(90,60,30,0.12);
+  }
+  .box h4 { margin-top: 0; color: var(--wizard-red); }
+  .box.dark { background: var(--parchment-dark); border-left-color: var(--ink-soft); }
+  .box.num { border-left-color: #6a5220; }
+  .box.num h4 { color: #6a5220; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: 16px;
+  }
+  th {
+    background: var(--wizard-red);
+    color: var(--parchment);
+    text-align: left;
+    padding: 8px 12px;
+    font-weight: 700;
+  }
+  td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--box-border);
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: rgba(194,168,120,0.15); }
+  .tag { font-style: italic; color: var(--ink-soft); font-size: 15px; }
+  .divider {
+    text-align: center; color: var(--wizard-red); font-size: 20px;
+    margin: 38px 0; letter-spacing: 8px;
+  }
+  .step-num {
+    display: inline-block; background: var(--wizard-red); color: var(--parchment);
+    width: 26px; height: 26px; border-radius: 50%; text-align: center;
+    line-height: 26px; font-weight: 700; margin-right: 8px; font-size: 15px;
+  }
+  @media (max-width: 600px) {
+    body { font-size: 17px; }
+    .page { padding: 26px 18px 60px; }
+    h1 { font-size: 30px; }
+    h2 { font-size: 23px; }
+    table { font-size: 14px; }
+    th, td { padding: 6px 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <h1>HERIDAS Y RECUPERACIÓN</h1>
+  <p class="subtitle">Regla de la casa · Veyrath</p>
+  <hr class="title-rule">
+
+  <p class="lead">En Veyrath, un golpe que casi te mata no se cura durmiendo una noche. Las heridas graves dejan marca, cuestan días, y obligan a elegir entre seguir adelante lastimado o replegarse a sanar. Esta es la regla que reemplaza la curación instantánea del descanso.</p>
+
+  <div class="box dark">
+    <h4>La idea en una frase</h4>
+    <p>El daño que recibís se divide en dos: el <strong>superficial</strong>, que se cura durmiendo como siempre, y el <strong>profundo</strong>, que solo sana con días de reposo en un lugar seguro, y más rápido si alguien te cuida. Un rasguño se sacude en una noche; una herida seria es cosa de días.</p>
+  </div>
+
+  <h2>1 · Daño masivo (Massive Damage)</h2>
+  <hr class="h2-rule">
+  <p>Se mantiene la regla oficial. <strong>Cuando un solo golpe te quita la mitad o más de tus puntos de vida máximos</strong>, haces una salvación de <strong>Constitución CD 15</strong>. Si fallas, sufres <em>System Shock</em>: tira 1d10 y consulta la tabla.</p>
+  <table>
+    <tr><th>d10</th><th>Efecto (hasta el final de tu próximo turno, salvo que se indique)</th></tr>
+    <tr><td>1</td><td>Caes a 0 puntos de vida.</td></tr>
+    <tr><td>2–3</td><td>Caes a 0 puntos de vida, pero estabilizado.</td></tr>
+    <tr><td>4–5</td><td>Quedas aturdido (stunned).</td></tr>
+    <tr><td>6–7</td><td>No puedes reaccionar y tienes desventaja en tiradas de ataque y de característica.</td></tr>
+    <tr><td>8–10</td><td>No puedes reaccionar.</td></tr>
+  </table>
+
+  <h2>2 · Las dos bolsas de daño</h2>
+  <hr class="h2-rule">
+  <p>Todo el daño que recibes baja tus puntos de vida normalmente. La diferencia está en <em>cómo se recupera después</em>. Parte del daño puede quedar marcado como <strong>herida profunda</strong>; el resto es <strong>daño superficial</strong>.</p>
+
+  <h3>Qué marca una herida profunda</h3>
+  <p>El disparador es el mismo golpe masivo del apartado anterior: un impacto que cruza el umbral de la mitad de tus PV máximos. Cuando eso pasa, <strong>la parte del golpe que excede ese umbral se convierte en herida profunda</strong>. El resto del daño es superficial.</p>
+
+  <div class="box num">
+    <h4>Ejemplo</h4>
+    <p>Tienes 10 PV máximos (umbral de daño masivo: 5). Un enemigo te acierta un golpe de <strong>6</strong>. Como cruza el umbral, el excedente —<strong>6 − 5 = 1</strong>— es herida profunda. El otro punto es daño superficial. Si el golpe hubiera sido de 9, la herida profunda sería de 4.</p>
+    <p class="tag">Como el umbral es siempre la mitad de tu vida, el sistema se ajusta solo a medida que subes de nivel: a más PV, hace falta un golpe más grande para herirte de verdad.</p>
+  </div>
+
+  <h2>3 · Cómo se cura cada tipo de daño</h2>
+  <hr class="h2-rule">
+
+  <h3>Daño superficial</h3>
+  <p>Se recupera con el descanso, igual que en las reglas normales. Un descanso largo te lo devuelve, incluso durmiendo a la intemperie. Es el aguante, el cansancio, los golpes leves: se sacude durmiendo.</p>
+
+  <h3>Daño profundo</h3>
+  <p>El descanso normal <strong>no</strong> lo cura. Solo sana bajo dos condiciones, y a una velocidad que depende de tu resistencia:</p>
+  <div class="box">
+    <h4>Velocidad de recuperación</h4>
+    <p>Por cada <strong>día completo de reposo</strong> en las condiciones correctas, recuperas puntos de herida profunda iguales a tu <strong>modificador de Constitución + tu bonificador de competencia</strong>.</p>
+    <p class="tag">Ej.: un personaje de nivel 5 con Con +3 recupera 3 + 3 = 6 por día. Uno de nivel 15 con Con +4 recupera 4 + 6 = 10 por día. La convalecencia se mantiene en "unos días" a cualquier nivel.</p>
+  </div>
+  <p>Las <strong>dos condiciones</strong> para que el daño profundo sane:</p>
+  <ul>
+    <li><strong>Reposo real:</strong> la persona tiene que descansar de verdad ese día. Nada de aventurar, viajar forzado, combatir ni exigir el cuerpo. Recuperarse es no hacer nada más que recuperarse.</li>
+    <li><strong>Lugar confortable:</strong> una posada, una casa, un templo, un hospital, o un campamento bien montado <em>en zona segura y sin amenaza</em>. A la intemperie, en marcha o en peligro, el daño profundo <strong>no sana</strong>: solo se mantiene estable.</li>
+  </ul>
+  <div class="box dark">
+    <h4>Nota sobre campamentos</h4>
+    <p>Un campamento que cuente como "confortable" lleva tiempo y esfuerzo montarlo —no es lo mismo que tirar el saco de dormir—. El detalle de cómo se arma un campamento así se cubrirá en el capítulo de campamentos; por ahora, alcanza con que sea un refugio en serio, en zona segura, donde el grupo pueda bajar la guardia.</p>
+  </div>
+
+  <h3>Curación mágica</h3>
+  <p>Los hechizos y pociones de curación reparan la herida profunda <strong>directamente</strong>, sin esperar días. Por eso la magia sigue siendo el atajo más valioso —y por eso conviene que siga siendo cara y escasa—.</p>
+
+  <div class="divider">✶ ✶ ✶</div>
+
+  <h2>4 · La habilidad Medicina</h2>
+  <hr class="h2-rule">
+  <p class="lead">Aquí la habilidad Medicina, casi inútil en las reglas normales, se vuelve una de las más valiosas del grupo. Cumple dos funciones: atender la herida en el momento, y acelerar la recuperación durante el reposo.</p>
+
+  <h3>Función A · Primeros auxilios</h3>
+  <p class="tag">Justo después del combate, o en un momento de calma.</p>
+  <p>Con un <strong>kit de sanador</strong>, alguien te atiende la herida antes de que se asiente. Hace una prueba de <strong>Medicina (Sabiduría)</strong> contra una dificultad que sube con la gravedad:</p>
+  <div class="box num">
+    <h4>La tirada (números sugeridos)</h4>
+    <p><strong>CD = 10 + puntos de herida profunda</strong> de esa herida. Cuanto más grave, más difícil atenderla bien.</p>
+    <p><strong>Si tiene éxito:</strong> rebaja de herida profunda a superficial una cantidad igual al <strong>bonificador de competencia + modificador de Sabiduría</strong> del sanador. Esa porción pasa a curarse rápido con el descanso normal.</p>
+    <p><strong>Techo:</strong> los primeros auxilios <strong>nunca pueden eliminar la última mitad</strong> de la herida profunda original. Siempre queda algo que solo el reposo o la magia terminan de sanar.</p>
+    <p><strong>Si falla:</strong> no empeora nada. Simplemente no logró rebajar la herida. Se puede intentar una sola vez por herida.</p>
+    <p><strong>Sin kit de sanador:</strong> la prueba se hace con desventaja.</p>
+  </div>
+
+  <h3>Función B · Convalecencia asistida</h3>
+  <p class="tag">Durante los días de reposo en el lugar confortable.</p>
+  <p>Si alguien con Medicina te cuida mientras te recuperas, sanas la herida profunda <strong>más rápido</strong>. No hace falta tirar cada día: el cuidado da un beneficio estable.</p>
+  <div class="box num">
+    <h4>El beneficio (números sugeridos)</h4>
+    <p>Bajo cuidado médico, sumas el <strong>bonificador de competencia del sanador</strong> a lo que recuperas por día de reposo, además de tu propia velocidad base.</p>
+    <p class="tag">Ej.: recuperas normalmente 6 por día; te cuida un sanador con competencia +3; pasas a recuperar 9 por día. Un buen médico casi duplica tu velocidad de recuperación.</p>
+    <p><strong>Cuidar a varios:</strong> un sanador puede atender a más de un herido, pero si cuida a más de dos a la vez, el beneficio se reparte y baja (a criterio del DM según la situación).</p>
+  </div>
+
+  <div class="divider">✶ ✶ ✶</div>
+
+  <h2>Resumen rápido</h2>
+  <hr class="h2-rule">
+  <table>
+    <tr><th>Situación</th><th>Qué pasa</th></tr>
+    <tr><td>Golpe que saca ½ de tus PV o más</td><td>Salvación Con CD 15 o System Shock. El excedente sobre el umbral se vuelve herida profunda.</td></tr>
+    <tr><td>Daño superficial</td><td>Se cura con descanso normal, incluso a la intemperie.</td></tr>
+    <tr><td>Daño profundo, descansando a la intemperie</td><td>No sana. Solo se mantiene estable.</td></tr>
+    <tr><td>Daño profundo, reposo en lugar confortable</td><td>Sana (Con + competencia) por día.</td></tr>
+    <tr><td>Primeros auxilios (Medicina, tras el combate)</td><td>CD 10 + herida. Éxito: rebaja (competencia + Sab) a superficial. No borra la última mitad.</td></tr>
+    <tr><td>Convalecencia asistida (Medicina, durante el reposo)</td><td>+competencia del sanador por día. Sin tirada.</td></tr>
+    <tr><td>Curación mágica</td><td>Repara herida profunda al instante.</td></tr>
+  </table>
+
+  <p style="text-align:center; font-style:italic; color:var(--ink-soft); margin-top:36px;">Los números marcados como "sugeridos" son un punto de partida. Ajústalos en la mesa hasta que el ritmo se sienta bien.</p>
+
+</div>
+</body>
+</html>
