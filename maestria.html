@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veyrath · Maestría de Armas</title>
+<style>
+  :root {
+    --parchment: #ede4d0;
+    --parchment-dark: #e2d5ba;
+    --ink: #2b2119;
+    --ink-soft: #4a3d2e;
+    --wizard-red: #7a2018;
+    --wizard-red-soft: #9a3527;
+    --box-bg: #e6dcc2;
+    --box-border: #c2a878;
+    --gold: #6a5220;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background:
+      radial-gradient(ellipse at 20% 15%, rgba(190,165,120,0.25), transparent 55%),
+      radial-gradient(ellipse at 80% 70%, rgba(150,120,80,0.20), transparent 50%),
+      var(--parchment);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    line-height: 1.6;
+    font-size: 18px;
+  }
+  .page { max-width: 820px; margin: 0 auto; padding: 48px 44px 80px; min-height: 100vh; box-shadow: 0 0 60px rgba(90,60,30,0.15) inset; }
+  h1 { font-size: 38px; color: var(--wizard-red); text-align: center; margin: 0 0 4px; letter-spacing: 1px; font-weight: 800; }
+  .subtitle { text-align: center; font-style: italic; color: var(--ink-soft); font-size: 18px; margin: 0 0 8px; }
+  .gm-note { text-align:center; font-size:14px; color:var(--wizard-red); font-variant: small-caps; letter-spacing:1px; margin-bottom:8px; }
+  .title-rule { height: 3px; background: linear-gradient(90deg, transparent, var(--wizard-red) 20%, var(--wizard-red) 80%, transparent); margin: 18px 0 32px; border: none; }
+  h2 { font-size: 26px; color: var(--wizard-red); margin: 40px 0 2px; font-weight: 700; }
+  h2 + .h2-rule { height: 2px; background: linear-gradient(90deg, var(--wizard-red) 0%, var(--wizard-red) 55%, transparent 100%); border: none; margin: 0 0 18px; }
+  h3 { font-size: 20px; color: var(--wizard-red-soft); margin: 24px 0 6px; font-weight: 700; }
+  h4 { font-size: 16px; color: var(--ink); margin: 18px 0 4px; font-weight: 700; font-variant: small-caps; letter-spacing: 0.8px; }
+  p { margin: 10px 0; }
+  em { color: var(--ink-soft); }
+  strong { color: var(--wizard-red-soft); }
+  .lead { font-size: 18px; font-style: italic; color: var(--ink-soft); border-left: 3px solid var(--wizard-red); padding-left: 18px; margin: 20px 0 24px; }
+  ul, ol { margin: 10px 0; padding-left: 26px; }
+  li { margin: 7px 0; }
+  .box { background: var(--box-bg); border: 1px solid var(--box-border); border-left: 4px solid var(--wizard-red); border-radius: 3px; padding: 14px 20px; margin: 22px 0; box-shadow: 0 1px 4px rgba(90,60,30,0.12); }
+  .box h4 { margin-top: 0; color: var(--wizard-red); }
+  .box.dark { background: var(--parchment-dark); border-left-color: var(--ink-soft); }
+  .box.gm { background: #efe6d0; border-left-color: var(--gold); }
+  .box.gm h4 { color: var(--gold); }
+  table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 16px; }
+  th { background: var(--wizard-red); color: var(--parchment); text-align: left; padding: 9px 12px; font-weight: 700; }
+  td { padding: 9px 12px; border-bottom: 1px solid var(--box-border); vertical-align: top; }
+  tr:nth-child(even) td { background: rgba(194,168,120,0.15); }
+  .tag { font-style: italic; color: var(--ink-soft); font-size: 15px; }
+  .divider { text-align: center; color: var(--wizard-red); font-size: 20px; margin: 38px 0; letter-spacing: 8px; }
+  .menu-opt { background: var(--parchment-dark); border-radius: 4px; padding: 10px 16px; margin: 8px 0; border-left: 3px solid var(--gold); }
+  @media (max-width: 600px) {
+    body { font-size: 17px; }
+    .page { padding: 26px 18px 60px; }
+    h1 { font-size: 27px; }
+    h2 { font-size: 22px; }
+    table { font-size: 14px; }
+    th, td { padding: 6px 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <h1>MAESTRÍA DE ARMAS</h1>
+  <p class="gm-note">Guía del sistema · Documento del Director de Juego</p>
+  <p class="subtitle">Cómo los personajes dominan sus armas con el uso</p>
+  <hr class="title-rule">
+
+  <p class="lead">Un guerrero que blande la misma espada en cien batallas termina conociéndola como una extensión de su brazo. Este sistema premia esa dedicación: cuanto más usa un personaje un arma concreta, mejor la maneja. La maestría no se compra ni se elige al subir de nivel: se gana peleando.</p>
+
+  <div class="box gm">
+    <h4>Nota para el Director</h4>
+    <p>El conteo lo llevas <strong>vos</strong>, no los jugadores. Ellos solo pelean; vos anotás sus impactos por detrás y les anunciás cuándo alcanzan un nuevo nivel de maestría. Así el sistema no entorpece el juego en la mesa: para ellos, su personaje "mejora solo" con la práctica. Estos números y umbrales son tu información, no la de ellos.</p>
+  </div>
+
+  <h2>Cómo se gana</h2>
+  <hr class="h2-rule">
+  <p>La maestría se acumula por <strong>impactos</strong>: cada golpe que <em>acierta</em> con un arma suma progreso con <em>esa arma específica</em>. Fallar no cuenta. La maestría es <strong>por arma puntual</strong>, no por tipo: la espada larga y la espada corta progresan por separado. Si un personaje cambia de arma, empieza de cero con la nueva.</p>
+
+  <div class="box">
+    <h4>El valor de cada golpe</h4>
+    <ul>
+      <li>Un <strong>impacto normal</strong> suma <strong>1</strong>.</li>
+      <li>Un <strong>crítico (20 natural)</strong> suma <strong>4</strong>. El golpe perfecto enseña mucho más que un golpe cualquiera.</li>
+    </ul>
+  </div>
+
+  <h2>Los umbrales</h2>
+  <hr class="h2-rule">
+  <p>Tres niveles de maestría, calibrados para una campaña de aproximadamente un año (unas doce sesiones). Un personaje que se dedica a una sola arma puede alcanzar la maestría plena hacia el final; uno que reparte entre varias, no llega al tope con ninguna. Dominar un arma cuesta, como debe ser.</p>
+  <table>
+    <tr><th>Nivel</th><th>Impactos</th><th>Qué representa</th></tr>
+    <tr><td><strong>Maestría I</strong> · Familiaridad</td><td>40</td><td>El arma ya te resulta natural.</td></tr>
+    <tr><td><strong>Maestría II</strong> · Destreza</td><td>90</td><td>La manejás con soltura y control.</td></tr>
+    <tr><td><strong>Maestría III</strong> · Maestría</td><td>140</td><td>El arma es una extensión de tu cuerpo.</td></tr>
+  </table>
+  <p class="tag">Los números son ajustables por el Director. Como los jugadores no los conocen, se pueden afinar sobre la marcha si el ritmo no se siente bien.</p>
+
+  <h2>Qué desbloquea cada nivel</h2>
+  <hr class="h2-rule">
+  <p>En cada nivel, el jugador <strong>elige una</strong> de las opciones disponibles. Distintos personajes con la misma arma pueden desarrollar maestrías distintas según lo que elijan.</p>
+
+  <h3>Maestría I · Familiaridad</h3>
+  <div class="menu-opt"><strong>Filo afinado:</strong> +1 al daño con esa arma.</div>
+  <div class="menu-opt"><strong>Mano firme:</strong> podés volver a tirar los 1 que salgan en el dado de daño de esa arma (una vez por tirada).</div>
+
+  <h3>Maestría II · Destreza</h3>
+  <div class="menu-opt"><strong>Golpe certero:</strong> una vez por combate, si fallás un ataque por 1 o 2 puntos, lo convertís en impacto. Ya conocés el arma lo bastante para corregir sobre la marcha.</div>
+  <div class="menu-opt"><strong>Presión constante:</strong> cuando impactás a un enemigo, este sufre −1 en su próxima tirada de ataque. Lo tenés a maltraer con el filo.</div>
+  <div class="menu-opt"><strong>Reflejo de combate:</strong> preparás o desenvainás el arma sin gastar acción, y ganás un pequeño bonus a la iniciativa cuando entrás en combate con ella en mano.</div>
+
+  <h3>Maestría III · Maestría</h3>
+  <p>Una <strong>maniobra especial</strong>, propia de la familia del arma, utilizable una vez por combate. Ejemplos según el tipo:</p>
+  <div class="menu-opt"><strong>Espadas y armas de filo — Filo Certero:</strong> tu golpe ignora parte de la armadura del enemigo (tratás su CA como más baja por ese ataque). Sabés exactamente dónde entra la hoja.</div>
+  <div class="menu-opt"><strong>Armas contundentes — Golpe Aturdidor:</strong> al impactar, el enemigo debe superar una salvación de Constitución o queda tambaleante (desventaja en su próximo ataque). Conocés el peso del arma y dónde descoloca.</div>
+  <div class="menu-opt"><strong>Armas a distancia — Disparo Preciso:</strong> apuntás a un punto vital: daño extra si impactás, o le anulás la ventaja de cobertura al objetivo. Dominás la trayectoria.</div>
+  <p class="tag">Estas maniobras son un punto de partida. Se pueden expandir con más opciones por arma, o convertir en otro menú a elegir.</p>
+
+  <div class="divider">✶ ✶ ✶</div>
+
+  <h2>Los lanzadores: maestría de cantrips</h2>
+  <hr class="h2-rule">
+  <p class="lead">Para que el sistema no premie solo a los que empuñan acero, los lanzadores mejoran de la misma forma con sus cantrips de ataque. El cantrip es su arma básica: el que lo lanza mil veces lo domina, igual que el guerrero su espada.</p>
+  <p>Funciona idéntico, con el mismo conteo y los mismos umbrales (40 / 90 / 140), aplicado a un <strong>cantrip específico</strong> (fire bolt progresa aparte de eldritch blast):</p>
+  <ul>
+    <li><strong>Cantrips de ataque</strong> (con tirada, como <em>fire bolt</em>): cada impacto suma 1; un crítico suma 4. Igual que un arma.</li>
+    <li><strong>Cantrips de salvación</strong> (como <em>sacred flame</em>): suman 1 cada vez que el enemigo <em>falla</em> la salvación (es su "impacto").</li>
+  </ul>
+  <p>Las mejoras son análogas, con sabor mágico: +1 al daño del cantrip, re-roll de 1s, o pequeños efectos añadidos en los niveles altos (que prenda fuego, que ralentice, que empuje). Las desarrollamos en detalle cuando armemos las maniobras.</p>
+
+  <div class="box gm">
+    <h4>Recordatorio de balance</h4>
+    <p>Cuidar que ninguna opción de maestría pise algo que ya existe en el juego base (feats, rasgos de subclase). Por eso Maestría II no amplía el rango de crítico a 19–20: eso ya lo dan el arquetipo Champion y ciertos feats, y regalarlo gratis desbalancearía. Las opciones elegidas apuntan a "sensación de dominio", no a duplicar recompensas que otros pagan con recursos.</p>
+  </div>
+
+</div>
+</body>
+</html>
